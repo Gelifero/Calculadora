@@ -112,6 +112,7 @@
             this.numOper2.Name = "numOper2";
             this.numOper2.Size = new System.Drawing.Size(55, 20);
             this.numOper2.TabIndex = 6;
+            this.numOper2.ValueChanged += new System.EventHandler(this.numOper2_ValueChanged);
             // 
             // btsoma
             // 
@@ -168,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(472, 290);
             this.Controls.Add(this.btigual);
             this.Controls.Add(this.btdiv);
             this.Controls.Add(this.btmult);

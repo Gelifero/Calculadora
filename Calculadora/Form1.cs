@@ -51,6 +51,7 @@ namespace Calculadora
         private void btdiv_Click(object sender, EventArgs e)
         {
             atribuirOperacao(btdiv.Text);
+            travarbotao();
         }
 
         private void btigual_Click(object sender, EventArgs e)
@@ -69,6 +70,21 @@ namespace Calculadora
                 resultado = num1 / num2;
 
             lblresult.Text = resultado.ToString();
+        }
+        void travarbotao()
+        {
+            /*if ((lbloper.Text == btdiv.Text && numOper2.Value == 0)
+             || lbloper.Text == *...*)
+                btigual.Enabled = false;
+            else
+                btigual.Enabled = true;*/
+            btigual.Enabled = !((lbloper.Text == btdiv.Text && numOper2.Value == 0)
+             || lbloper.Text == *...*);
+        }
+
+        private void numOper2_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
