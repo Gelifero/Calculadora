@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,12 +51,12 @@ namespace Calculadora
         private void btdiv_Click(object sender, EventArgs e)
         {
             atribuirOperacao(btdiv.Text);
-            travarbotao();
+            Travarbotao();
         }
-
+        double resultado;
         private void btigual_Click(object sender, EventArgs e)
         {
-            double num1, num2, resultado = 0;
+            double num1, num2 ;
             num1 = (double)numOper1.Value;
             num2 = (double)numOper2.Value;
 
@@ -70,21 +70,49 @@ namespace Calculadora
                 resultado = num1 / num2;
 
             lblresult.Text = resultado.ToString();
+            ativarBotaoSegue();
         }
-        void travarbotao()
+        void Travarbotao()
         {
             /*if ((lbloper.Text == btdiv.Text && numOper2.Value == 0)
              || lbloper.Text == *...*)
                 btigual.Enabled = false;
             else
                 btigual.Enabled = true;*/
-            btigual.Enabled = !((lbloper.Text == btdiv.Text && numOper2.Value == 0)
-             || lbloper.Text == *...*);
+            btigual.Enabled = !((lbloper.Text == btdiv.Text && numOper2.Value == 0) || lbloper.Text == " ");
         }
 
         private void numOper2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void numOper1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        void ativarBotaoSegue()
+        {
+            btsegue.Enabled = !string.IsNullOrEmpty(lblresult.Text);
+        }
+
+        private void btsegue_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblresult.Text))
+            {
+                numOper1.Value = Convert.ToDecimal(lblresult.Text);
+            }
+        }
+
+        private void btlimpa_Click_1(object sender, EventArgs e)
+        {
+            numOper1.Value = 0;
+            numOper2.Value = 0;
+            lblresult.Text = "";
+            lbloper.Text = "";
+            btigual.Enabled = false;
+            btsegue.Enabled = false;
         }
     }
 }
